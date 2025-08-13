@@ -1,5 +1,5 @@
 -- Create a host_info table
-CREATE TABLE PUBLIC.host_info 
+CREATE TABLE IF NOT EXISTS  PUBLIC.host_info 
   ( 
      id               SERIAL NOT NULL, 
      hostname         VARCHAR NOT NULL, 
@@ -15,7 +15,7 @@ CREATE TABLE PUBLIC.host_info
   );
  
 -- Create a host_usage table
-CREATE TABLE PUBLIC.host_usage
+CREATE TABLE IF NOT EXISTS PUBLIC.host_usage
   (
      "timestamp"    TIMESTAMP NOT NULL,
      host_id        SERIAL NOT NULL,
