@@ -27,6 +27,10 @@ l2 cache: $l2_cache
 Total Mem: $total_mem
 Timestamp: $timestamp"
 
-psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name" -c "INSERT INTO host_info (id, hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, \"timestamp\", total_mem) VALUES (1, '$hostname', $cpu_number, '$cpu_architecture', '$cpu_model', $cpu_mhz, $l2_cache, '$timestamp', $total_mem);"
-
+psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name" -c "
+INSERT INTO host_info (
+    hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, \"timestamp\", total_mem
+) VALUES (
+    '$hostname', $cpu_number, '$cpu_architecture', '$cpu_model', $cpu_mhz, $l2_cache, '$timestamp', $total_mem
+);"
 exit 0
