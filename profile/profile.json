@@ -1,0 +1,126 @@
+{
+  "education": [
+    {
+      "awards_achievements": null,
+      "degree": "Bachelor of Engineering",
+      "department": "Electrical and Computer Engineering",
+      "duration": "2021-2025",
+      "school_name": "Toronto Metropolitan University"
+    }
+  ],
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_RohanChedde",
+  "highlighted_projects": [
+    {
+      "description": "Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.",
+      "git_url": "https://github.com/jarviscanada/jarvis_profile_builder",
+      "name": "Web app for resturant"
+    },
+    {
+      "description": "Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.",
+      "git_url": null,
+      "name": "Machine Learning"
+    }
+  ],
+  "jarvis_projects": [
+    {
+      "description": "Utilized Linux command lines, Bash Scripts, PostgreSQL and Docker to implement a Linux Cluster Monitoring application. This monitoring system records the harware specifications and monitors resource usage of a node running Rocky Linux in real time. The collected data is stored in a RDBMS.",
+      "git_url": "/linux_sql",
+      "name": "Cluster Monitor"
+    },
+    {
+      "description": [
+        "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      ],
+      "git_url": "/core_java",
+      "name": "Core Java Apps"
+    },
+    {
+      "description": "",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "",
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
+    },
+    {
+      "description": "",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
+    },
+    {
+      "description": "",
+      "git_url": "/spark",
+      "name": "Spark"
+    },
+    {
+      "description": "",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
+    }
+  ],
+  "name": "Rohan Chedde",
+  "others": [
+    {
+      "bullets": [
+        "Udacity Machine Learning (2019)"
+      ],
+      "title": "Certificates"
+    },
+    {
+      "bullets": [
+        "Winner"
+      ],
+      "title": "Awards"
+    },
+    {
+      "bullets": [
+        "Basketball player",
+        "Competitive gaming",
+        "Volunteer, ABC Food bank: Ut enim ad minim veniam"
+      ],
+      "title": "Activities/Hobbies"
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "Jarvis",
+      "description": "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.",
+      "duration": "July 2025-present",
+      "title": "Data Engineer"
+    },
+    {
+      "company": "Kinetika",
+      "description": "Developed a web application that enables volleyball coaches to create and manage practice sessions and drills using Webflow for the frontend and a custom RESTful API for backend functionality. Designed a user-friendly interface using HTML, allowing coaches to submit structured content with ease directly through embedded forms. Handled form submissions with JavaScript, sending user-generated practice data as JSON via HTTP/HTTPS protocols to the custom backend",
+      "duration": "June 2025",
+      "title": "Freelance Web Developer"
+    }
+  ],
+  "skills": {
+    "competent": [
+      "Python",
+      "Docker",
+      "Kubernetes",
+      "JavaScript",
+      "Google Cloud/ AWS"
+    ],
+    "familiar": [
+      "Ansible",
+      "Jenkins",
+      "HTML",
+      "C",
+      "PySpark"
+    ],
+    "proficient": [
+      "Java",
+      "Linux/Bash",
+      "RDBMS/SQL",
+      "Agile/Scrum",
+      "Git"
+    ]
+  },
+  "summary": "Recent Computer Engineering graduate (April 2025) from Toronto Metropolitan University (formerly Ryerson University) with a strong foundation in Software Engineering and DevOps. Experienced in Agile methodologies and cloud-based development, with hands-on proficiency in tools such as Git, Jenkins, and Docker for streamlined and efficient application deployment. Demonstrates strong problem-solving skills, adaptability, and a commitment to continuous learning. Eager to contribute to impactful software and systems projects by leveraging knowledge in computer architecture, hardware design, cloud computing, and multiple programming languages"
+}
