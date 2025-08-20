@@ -1,0 +1,17 @@
+Index: scripts/psql_docker.sh
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#!/bin/sh\n\n# Capture CLI arguments\ncmd=$1\ndb_username=$2\ndb_password=$3\n\n# Start docker\n# Make sure you understand the double pipe operator\nsudo systemctl status docker || systemctl #todo\n\n# Check container status (try the following cmds on terminal)\ndocker container inspect jrvs-psql\ncontainer_status=$?\n\n# User switch case to handle create|stop|start opetions\ncase $cmd in\n  create)\n\n  # Check if the container is already created\n  if [ $container_status -eq 0 ]; then\n\t\techo 'Container already exists'\n\t\texit 1\n\tfi\n\n  # Check # of CLI arguments\n  if [ $# -ne 3 ]; then\n    echo 'Create requires username and password'\n    exit 1\n  fi\n\n  # Create container\n\tdocker volume #todo\n  # Start the container\n\tdocker run #todo\n  # Make sure you understand what's `$?`\n\texit $?\n\t;;\n\n  start|stop)\n  # Check instance status; exit 1 if container has not been created\n  if [ $container_status # ... todo\n  # ... todo\n\n  # Start or stop the container\n\tdocker container $cmd jrvs-psql\n\texit $?\n\t;;\n\n  *)\n\techo 'Illegal command'\n\techo 'Commands: start|stop|create'\n\texit 1\n\t;;\nesac
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/scripts/psql_docker.sh b/scripts/psql_docker.sh
+--- a/scripts/psql_docker.sh	(revision f2b814a0632b62be69528acc353907a714c99896)
++++ b/scripts/psql_docker.sh	(date 1755193659482)
+@@ -52,4 +52,4 @@
+ 	echo 'Commands: start|stop|create'
+ 	exit 1
+ 	;;
+-esac
+\ No newline at end of file
++esac
