@@ -51,17 +51,26 @@ CREATE TABLE cd.bookings
     );
 ```
 
-###### Question 1: Show all members 
+#### Modifying Data
+
+###### Question 1: Insert some data into a table
 ```sql
-SELECT *
-FROM cd.members
+INSERT INTO cd.facilities
+    (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance)
+    values (9, 'Spa', 20, 30, 100000, 800);
 ```
 
 
-###### Question 2: Lorem ipsum...
+###### Question 2: Insert calculated data into a table
 ```sql
-SELECT blah blah 
+INSERT INTO cd.facilities
+    (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance)
+    select (select max(facid) from cd.facilities)+1, 'Spa', 20, 30, 100000, 800;
 ```
 
+###### Question 3: Update some existing data
+```sql
+UPDATE cd.facilities SET initialoutlay = 10000 WHERE facid = 1;
+```
 
 
