@@ -73,4 +73,22 @@ INSERT INTO cd.facilities
 UPDATE cd.facilities SET initialoutlay = 10000 WHERE facid = 1;
 ```
 
+###### Question 4: Update a row based on the contents of another row
+```sql
+UPDATE cd.facilities facs
+SET membercost = (SELECT membercost * 1.1 FROM cd.facilities WHERE facid = 0),
+        guestcost = (SELECT guestcost * 1.1 FROM cd.facilities WHERE facid = 0)
+WHERE facs.facid = 1;
+```
+
+###### Question 5: Delete all bookings
+```sql
+DELETE FROM cd.bookings;
+```
+
+###### Question 6: Delete a member from the cd.members table
+```sql
+DELETE FROM cd.members
+WHERE memid = 37;
+```
 
