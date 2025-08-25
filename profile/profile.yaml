@@ -34,7 +34,7 @@ skills:
 
 # List of Jarvis projects
 jarvis_projects:
-  - name: "Cluster Monitor"
+  - name: "Linuc Cluster Monitoring Agent"
     git_url: "/linux_sql"
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
@@ -48,10 +48,10 @@ highlighted_projects:
     #URL is optional
     git_url: "https://github.com/rohanchedde/FishingARound"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description:  Developed mobile gameplay features to be implemented in augmented reality using TypeScript. Leveraged Host to Client messaging to implement multiplayer features. Implemented a user-friendly mobile UI using JavaScript and HTML, providing game elements and information for users to easily interact with the game.
+    description: Spearheaded an engineering capstone project to develop mobile gameplay features to be implemented in augmented reality using TypeScript. Leveraged Host to Client messaging to implement multiplayer features. Implemented a user-friendly mobile UI using JavaScript and HTML, providing game elements and information for users to easily interact with the game.
   - name: "Object Detection Computer Vision"
     git_url: "https://github.com/rohanchedde/Object-Detection-Computer-Vision-Project"
-    description:  Developed a real-time basketball action detection and classification using Computer Vision. Used Python to implement machine learning algorithms like Ultralytics YOLOv8 to train the model. Utilized Roboflow for labeling and classifying input for training
+    description:  Developed a real-time basketball action detection and classification using Computer Vision. Used Python to implement machine learning algorithms like Ultralytics YOLOv8 to train the model. Utilized Roboflow for labeling and classifying input for training.
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -62,16 +62,16 @@ professional_experience:
     company: "Jarvis"
     duration: "July 2025-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Programmed various industry esque projects using the Agile/ Scrum methodology"
+    description: "Programmed various industry level projects using the Agile/ Scrum methodology"
   - title: "Freelance Web Developer"
     company: "Kinetika"
     duration: "June 2025"
-    description: "Developed a web application that enables volleyball coaches to create and manage practice sessions and drills using Webflow for the frontend and a custom RESTful API for backend functionality. Designed a user-friendly interface using HTML, allowing coaches to submit structured content with ease. Handled form submissions with JavaScript, sending user-generated practice data as JSON via HTTP/HTTPS protocols to the custom backend"
+    description: "Developed a web application that enables volleyball coaches to create and manage practice sessions and drills using Webflow for the frontend and a custom RESTful API for backend functionality. Designed a user-friendly interface using HTML, allowing coaches to submit structured content with ease. Handled form submissions with JavaScript, sending user-generated practice data as JSON via HTTP/HTTPS protocols to the custom backend."
 
 #List of edcuation
 education: 
   - school_name: "Toronto Metropolitan University"
-    duration: "Sept. 2021 - Apr. 2025"
+    duration: ""
     degree: "Bachelor of Engineering"
     department: "Electrical and Computer Engineering"
     # optional
