@@ -71,8 +71,8 @@ professional_experience:
 #List of edcuation
 education: 
   - school_name: "Toronto Metropolitan University"
-    duration: ""
     degree: "Bachelor of Engineering"
+    duration: "  "  
     department: "Electrical and Computer Engineering"
     # optional
     awards_achievements:
