@@ -46,10 +46,27 @@ UNION
 SELECT name FROM cd.facilities;
 
 -- Question 12: Retrieve the start times of members' bookings
-SELECT bks.starttime 
-    FROM cd.bookings bks 
-        INNER JOIN cd.members mems
-            ON mems.memid = bks.memid
-    WHERE
-        mems.firstname='David'
-        AND mems.surname='Farrell';
+SELECT starttime FROM cd.bookings
+INNER JOIN cd.members
+ON cd.members.memid = cd.bookings.memid
+WHERE cd.members.firstname='David'
+AND cd.members.surname='Farrell';
+
+-- Question 13: Work out the start times of bookings for tennis courts
+select bks.starttime as start, facs.name as name
+	from 
+		cd.facilities facs
+		inner join cd.bookings bks
+			on facs.facid = bks.facid
+	where 
+		facs.name in ('Tennis Court 2','Tennis Court 1') and
+		bks.starttime >= '2012-09-21' and
+		bks.starttime < '2012-09-22'
+order by bks.starttime;
+
+-- Question 14: Produce a list of all members, along with their recommender
+SELECT mems.firstname, mems.surname, recs.firstname, recs.surname
+FROM cd.members mems
+LEFT OUTER JOIN cd.members recs
+ON recs.memid = mems.recommendedby
+ORDER BY mems.surname, mems.firstname;
