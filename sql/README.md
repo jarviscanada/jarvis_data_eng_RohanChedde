@@ -1,5 +1,5 @@
 # Introduction
-
+This project is predominantly a learning activity which allowed me to learn SQL and RDBMS by solving SQL queries.
 # SQL Queries
 
 ###### Table Setup (DDL)
