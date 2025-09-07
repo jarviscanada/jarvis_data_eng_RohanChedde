@@ -23,9 +23,9 @@
   ],
   "jarvis_projects": [
     {
-      "description": "Utilized Linux command lines, Bash Scripts, PostgreSQL and Docker to implement a Linux Cluster Monitoring application. This monitoring system records the harware specifications and monitors resource usage of a node running Rocky Linux in real time. The collected data is stored in a RDBMS.",
+      "description": "Utilized Linux command lines, Bash Scripts, PostgreSQL and Docker to implement a Linux Cluster Monitoring application. This monitoring system records the hardware specifications and monitors resource usage of a node running Rocky Linux in real time. The collected data is stored in a RDBMS.",
       "git_url": "/linux_sql",
-      "name": "Linuc Cluster Monitoring Agent"
+      "name": "Linux Cluster Monitoring Agent"
     }
   ],
   "name": "Rohan Chedde",
