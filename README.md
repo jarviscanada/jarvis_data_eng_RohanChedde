@@ -15,7 +15,7 @@ A results-driven Computer Engineering graduate from Toronto Metropolitan Univers
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_RohanChedde](https://github.com/jarviscanada/jarvis_data_eng_RohanChedde)
 
 
-**Linuc Cluster Monitoring Agent** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_RohanChedde/tree/master/linux_sql)]: Utilized Linux command lines, Bash Scripts, PostgreSQL and Docker to implement a Linux Cluster Monitoring application. This monitoring system records the harware specifications and monitors resource usage of a node running Rocky Linux in real time. The collected data is stored in a RDBMS.
+**Linux Cluster Monitoring Agent** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_RohanChedde/tree/master/linux_sql)]: Utilized Linux command lines, Bash Scripts, PostgreSQL and Docker to implement a Linux Cluster Monitoring application. This monitoring system records the hardware specifications and monitors resource usage of a node running Rocky Linux in real time. The collected data is stored in a RDBMS.
 
 
 ## Highlighted Projects
