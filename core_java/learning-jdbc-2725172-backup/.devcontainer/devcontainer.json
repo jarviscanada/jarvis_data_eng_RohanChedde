@@ -1,0 +1,21 @@
+{
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.github-vscode-theme",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-java-debug",
+        "redhat.java",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "forwardPorts": [5432],
+  "features":{},
+  "onCreateCommand": "echo >> ~/.bashrc && echo PS1='\"$ \"' >> ~/.bashrc",
+  "postAttachCommand": "git pull --all"
+}
