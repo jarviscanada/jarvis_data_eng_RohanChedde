@@ -1,14 +1,11 @@
 package ca.jrvs.apps.stockquote;
 
-
 import java.io.IOException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
-import ca.jrvs.apps.stockquote.dto.StockQuote;
 
 public class JsonParser {
 

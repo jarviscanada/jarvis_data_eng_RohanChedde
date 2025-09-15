@@ -1,4 +1,4 @@
-package ca.jrvs.apps.stockquote.dto;
+package ca.jrvs.apps.stockquote;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
