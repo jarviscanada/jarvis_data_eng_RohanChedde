@@ -1,5 +1,6 @@
 package ca.jrvs.apps.stockquote;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CrudDao<T, ID> {

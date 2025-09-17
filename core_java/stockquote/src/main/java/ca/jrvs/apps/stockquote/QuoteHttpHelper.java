@@ -1,6 +1,6 @@
 package ca.jrvs.apps.stockquote;
 import ca.jrvs.apps.stockquote.JsonParser;
-import ca.jrvs.apps.stockquote.StockQuote;
+import ca.jrvs.apps.stockquote.Quote;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -16,7 +16,7 @@ public class QuoteHttpHelper {
         this.client = HttpClient.newHttpClient();
     }
 
-    public StockQuote fetchQuoteInfo(String symbol) throws IllegalArgumentException {
+    public Quote fetchQuoteInfo(String symbol) throws IllegalArgumentException {
         try {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(
@@ -40,14 +40,28 @@ public class QuoteHttpHelper {
             String globalQuoteJson = JsonParser.toObjectFromJson(body, com.fasterxml.jackson.databind.JsonNode.class)
                     .get("Global Quote").toString();
 
-            StockQuote quote = JsonParser.toObjectFromJson(globalQuoteJson, StockQuote.class);
-
+            Quote quote = JsonParser.toObjectFromJson(globalQuoteJson, Quote.class);
+            Quote newQuote = new Quote();
+            QuoteDao quoteDao = new QuoteDao();
+            newQuote.setSymbol(quote.getSymbol());
+            newQuote.setOpen(quote.getOpen());
+            newQuote.setHigh(quote.getHigh());
+            newQuote.setLow(quote.getLow());
+            newQuote.setPrice(quote.getPrice());
+            newQuote.setVolume(quote.getVolume());
+            newQuote.setLatestTradingDay(quote.getLatestTradingDay());
+            newQuote.setPreviousClose(quote.getPreviousClose());
+            newQuote.setChange(quote.getChange());
+            newQuote.setChangePercent(quote.getChangePercent());
+            newQuote.setTimestamp(quote.getTimestamp());
+            
+            newQuote = quoteDao.save(newQuote);
             // Validate response
             if (quote.getSymbol() == null || quote.getSymbol().isEmpty()) {
                 throw new IllegalArgumentException("Invalid ticker symbol: " + symbol);
             }
 
-            return quote;
+            return newQuote;
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to fetch quote info: " + e.getMessage(), e);
@@ -57,9 +71,9 @@ public class QuoteHttpHelper {
     public static void main(String[] args) {
         String apiKey = "ebe9112052msh012e03c973d45f5p18bce4jsn5dd9f3d22fe4";
         QuoteHttpHelper helper = new QuoteHttpHelper(apiKey);
-
+        
         try {
-            StockQuote quote = helper.fetchQuoteInfo("MSFT");
+            Quote quote = helper.fetchQuoteInfo("MSFT");
             System.out.println(JsonParser.toJson(quote, true, false));
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
