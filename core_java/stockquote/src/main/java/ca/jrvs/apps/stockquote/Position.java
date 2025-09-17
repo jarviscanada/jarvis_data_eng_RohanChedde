@@ -25,4 +25,9 @@ public class Position {
 		this.valuePaid = valuePaid;
 	}
 
+	@Override
+	public String toString() {
+		return "Position [ticker=" + ticker + ", numOfShares=" + numOfShares + ", valuePaid=" + valuePaid + "]";
+	}
+
 }

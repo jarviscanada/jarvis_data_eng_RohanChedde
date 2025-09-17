@@ -4,7 +4,7 @@ public class API {
 
     public static void main(String[] args) {
         String symbol = "TSLA";
-        String apiKey = "";
+        String apiKey = "ebe9112052msh012e03c973d45f5p18bce4jsn5dd9f3d22fe4";
 
         QuoteHttpHelper helper = new QuoteHttpHelper(apiKey);
         try {

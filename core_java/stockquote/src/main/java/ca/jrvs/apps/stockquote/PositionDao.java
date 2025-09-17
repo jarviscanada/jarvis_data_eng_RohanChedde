@@ -17,10 +17,10 @@ public class PositionDao implements CrudDao<Position, String> {
 
     private Connection c;
     private static final Logger LOGGER = Logger.getLogger(PositionDao.class.getName());
-    private static final String INSERT = "insert into Position (ticker, numOfShares, valuePaid) values (?, ?, ?);";
-    private static final String SELECT = "select * from Position where ticker=?;";
+    private static final String INSERT = "insert into Position (symbol, number_of_shares, value_paid) values (?, ?, ?);";
+    private static final String SELECT = "select * from Position where symbol=?;";
     private static final String SELECT_ALL = "select * from Position;";
-    private static final String DELETE = "delete from Position where ticker=?;";
+    private static final String DELETE = "delete from Position where symbol=?;";
     private static final String DELETE_ALL = "delete from Position;";
 
 
@@ -29,7 +29,7 @@ public class PositionDao implements CrudDao<Position, String> {
     Connection connection = DatabaseUtils.getConnection();
     try {
       connection.setAutoCommit(false);
-      PreparedStatement statement = connection.prepareStatement(INSERT);
+        PreparedStatement statement = connection.prepareStatement(INSERT);
         statement.setString(1, entity.getTicker());
         statement.setInt(2, entity.getNumOfShares());
         statement.setDouble(3, entity.getValuePaid());
@@ -37,6 +37,7 @@ public class PositionDao implements CrudDao<Position, String> {
       statement.execute();
       connection.commit();
       statement.close();
+
     } catch (SQLException e) {
       try {
         connection.rollback();

@@ -17,7 +17,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
 
     private Connection c;
     private static final Logger LOGGER = Logger.getLogger(QuoteDao.class.getName());
-  private static final String UPSERT = "insert into Quote (symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, change_percent, timestamp) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (symbol) DO UPDATE SET open=excluded.open, high=excluded.high, low=excluded.low, price=excluded.price, volume=excluded.volume, latest_trading_day=excluded.latest_trading_day, previous_close=excluded.previous_close, change=excluded.change, change_percent=excluded.change_percent, timestamp=excluded.timestamp;";
+    private static final String UPSERT = "insert into Quote (symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, change_percent, timestamp) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (symbol) DO UPDATE SET open=excluded.open, high=excluded.high, low=excluded.low, price=excluded.price, volume=excluded.volume, latest_trading_day=excluded.latest_trading_day, previous_close=excluded.previous_close, change=excluded.change, change_percent=excluded.change_percent, timestamp=excluded.timestamp;";
     private static final String SELECT = "select * from Quote where symbol=?;";
     private static final String SELECT_ALL = "select * from Quote;";
     private static final String DELETE = "delete from Quote where symbol=?;";
