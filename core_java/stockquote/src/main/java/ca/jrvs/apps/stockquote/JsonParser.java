@@ -30,7 +30,7 @@ public class JsonParser {
 
     public static void main(String[] args) throws IOException {
       String json = "{ \"01. symbol\": \"AAPL\", \"05. price\": 127.79 }";
-      StockQuote quote = toObjectFromJson(json, StockQuote.class);
+      Quote quote = toObjectFromJson(json, Quote.class);
       System.out.println(toJson(quote, true, false));
     }
 
