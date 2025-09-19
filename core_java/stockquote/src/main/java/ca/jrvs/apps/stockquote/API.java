@@ -4,12 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.log4j.BasicConfigurator;
+
 import okhttp3.OkHttpClient;
 
 public class API {
 
     public static void main(String[] args) throws Exception {
-        String symbol = "TSLA";
+        BasicConfigurator.configure();
+        
+        String symbol = "CJET";
         String apiKey = "ebe9112052msh012e03c973d45f5p18bce4jsn5dd9f3d22fe4";
         OkHttpClient client = new OkHttpClient();
 

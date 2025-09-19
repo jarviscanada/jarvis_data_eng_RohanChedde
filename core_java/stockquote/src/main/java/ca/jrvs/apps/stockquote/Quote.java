@@ -3,12 +3,15 @@ package ca.jrvs.apps.stockquote;
 import java.sql.Timestamp;
 import java.sql.Date;
 import java.time.LocalDateTime;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Quote {
+
+  private final Logger logger = LoggerFactory.getLogger(Quote.class);
 
   @JsonProperty("01. symbol")
   private String ticker;
@@ -80,6 +83,8 @@ public class Quote {
 
   public void setPrice(double price) {
     this.price = price;
+    logger.info("Price set to {}", price);
+
   }
 
   public int getVolume() {

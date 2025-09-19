@@ -7,7 +7,7 @@ public class PositionServiceTest {
 
     @Test
     public void testBuyWithSufficientVolume() {
-        PositionService service = new PositionService();
+        PositionService service = new PositionService(null, null);
         String symbol = "GOOG";
         int sharesToBuy = 1;
         double price = 100.0;
@@ -20,7 +20,7 @@ public class PositionServiceTest {
 
     @Test
     public void testBuyWithInsufficientVolume() {
-        PositionService service = new PositionService();
+        PositionService service = new PositionService(null, null);
         String symbol = "GOOG";
         int sharesToBuy = 1000000000;
         double price = 100.0;
@@ -32,7 +32,7 @@ public class PositionServiceTest {
 
     @Test
     public void testBuyWithInvalidTicker() {
-        PositionService service = new PositionService();
+        PositionService service = new PositionService(null, null);
         String symbol = "INVALID";
         int sharesToBuy = 1;
         double price = 100.0;

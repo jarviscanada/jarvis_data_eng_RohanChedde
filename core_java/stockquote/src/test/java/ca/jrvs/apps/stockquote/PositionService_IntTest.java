@@ -19,7 +19,7 @@ public class PositionService_IntTest {
 
         when(mockQuoteDao.findById("GOOG")).thenReturn(java.util.Optional.of(quote));
 
-        PositionService service = new PositionService();
+        PositionService service = new PositionService(mockPositionDao, mockQuoteDao);
         Position position = service.buy("GOOG", 10, 100.0);
 
         assertNotNull(position);
@@ -39,7 +39,7 @@ public class PositionService_IntTest {
 
         when(mockQuoteDao.findById("MELI")).thenReturn(java.util.Optional.of(quote));
 
-        PositionService service = new PositionService();
+        PositionService service = new PositionService(mockPositionDao, mockQuoteDao);
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             service.buy("MELI", 1000000, 100.0);
         });

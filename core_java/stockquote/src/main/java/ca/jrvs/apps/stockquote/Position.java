@@ -1,7 +1,10 @@
 package ca.jrvs.apps.stockquote;
 
-public class Position {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+public class Position {
+	private final Logger logger = LoggerFactory.getLogger(Position.class);
 	private String ticker; //id
 	private int numOfShares;
 	private double valuePaid; //total amount paid for shares
@@ -17,6 +20,8 @@ public class Position {
 	}
 	public void setNumOfShares(int numOfShares) {
 		this.numOfShares = numOfShares;
+		logger.info("Number of shares set to {}", numOfShares);
+
 	}
 	public double getValuePaid() {
 		return valuePaid;

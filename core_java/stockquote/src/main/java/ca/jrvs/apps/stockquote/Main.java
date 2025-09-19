@@ -10,11 +10,14 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.BasicConfigurator;
+
 import okhttp3.OkHttpClient;
 
 public class Main {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {	
+		BasicConfigurator.configure();	
 		Map<String, String> properties = new HashMap<>();
 		try (BufferedReader br = new BufferedReader(new FileReader("src/resources/properties.txt"))) {
 			String line;
