@@ -24,12 +24,15 @@ public class QuoteDao implements CrudDao<Quote, String> {
     private static final String DELETE_ALL = "delete from Quote;";
 
 
+    public QuoteDao(Connection c) {
+      this.c=c;
+    }
+
     @Override
   public Quote save(Quote entity) throws IllegalArgumentException {
-    Connection connection = DatabaseUtils.getConnection();
     try {
-      connection.setAutoCommit(false);
-      PreparedStatement statement = connection.prepareStatement(UPSERT);
+      c.setAutoCommit(false);
+      PreparedStatement statement = c.prepareStatement(UPSERT);
       statement.setString(1, entity.getSymbol());
       statement.setDouble(2, entity.getOpen());
       statement.setDouble(3, entity.getHigh());
@@ -42,11 +45,11 @@ public class QuoteDao implements CrudDao<Quote, String> {
       statement.setString(10, entity.getChangePercent());
       statement.setTimestamp(11, entity.getTimestamp());
       statement.execute();
-      connection.commit();
+      c.commit();
       statement.close();
     } catch (SQLException e) {
       try {
-        connection.rollback();
+        c.rollback();
       } catch (SQLException sqle) {
         DatabaseUtils.handleSqlException("QuoteDao.save.rollback", sqle, LOGGER);
       }
@@ -67,7 +70,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
    */
   @Override
   public Optional<Quote> findById(String id) throws IllegalArgumentException {
-    try (PreparedStatement statement = DatabaseUtils.getConnection().prepareStatement(SELECT)){
+    try (PreparedStatement statement = c.prepareStatement(SELECT)){
         statement.setString(1, id);
         ResultSet rs = statement.executeQuery();
         List<Quote> quotes = this.processResultSet(rs);
@@ -84,8 +87,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
     @Override
     public Iterable<Quote> findAll() {
         List<Quote> quotes = new ArrayList<>();
-        Connection connection = DatabaseUtils.getConnection();
-        try (Statement statement = connection.createStatement()){
+        try (Statement statement = c.createStatement()){
             ResultSet rs = statement.executeQuery(SELECT_ALL);
             quotes = this.processResultSet(rs);
         } catch (SQLException e) {
@@ -96,17 +98,16 @@ public class QuoteDao implements CrudDao<Quote, String> {
 
     @Override
     public void deleteById(String id){
-        Connection connection = DatabaseUtils.getConnection();
     try {
-      connection.setAutoCommit(false);
-      PreparedStatement statement = connection.prepareStatement(DELETE);
+      c.setAutoCommit(false);
+      PreparedStatement statement = c.prepareStatement(DELETE);
         statement.setString(1, id);
       statement.executeUpdate();
-        connection.commit();
+        c.commit();
         statement.close();
     }catch (SQLException e) {
       try {
-        connection.rollback();
+        c.rollback();
       } catch (SQLException sqle) {
         DatabaseUtils.handleSqlException("QuoteDao.deleteById.rollback", sqle, LOGGER);
       }
@@ -116,16 +117,15 @@ public class QuoteDao implements CrudDao<Quote, String> {
 
   @Override
   public void deleteAll() {
-    Connection connection = DatabaseUtils.getConnection();
     try {
-      connection.setAutoCommit(false);
-      PreparedStatement statement = connection.prepareStatement(DELETE_ALL);
+      c.setAutoCommit(false);
+      PreparedStatement statement = c.prepareStatement(DELETE_ALL);
       statement.executeUpdate();
-      connection.commit();
+      c.commit();
       statement.close();
     } catch (SQLException e) {
       try {
-        connection.rollback();
+        c.rollback();
       } catch (SQLException sqle) {
         DatabaseUtils.handleSqlException("QuoteDao.deleteAll.rollback", sqle, LOGGER);
       }

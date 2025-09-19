@@ -5,9 +5,9 @@ public class PositionService {
 	private PositionDao dao;
     private static QuoteDao quoteDao;
 
-    public PositionService() {
-        this.dao = new PositionDao();
-        this.quoteDao = new QuoteDao();
+    public PositionService(PositionDao pRepo, QuoteDao qRepo) {
+        this.dao = pRepo;
+        PositionService.quoteDao = qRepo;
     }
 
 
@@ -22,6 +22,7 @@ public class PositionService {
         Position position = new Position();
         position.setTicker(ticker);
         position.setNumOfShares(numberOfShares);
+        price = quoteDao.findById(ticker).orElse(null).getPrice();
         position.setValuePaid(numberOfShares * price);
 
         if (numberOfShares <= 0 || price <= 0) {
@@ -40,10 +41,19 @@ public class PositionService {
 	 * Sells all shares of the given ticker symbol
 	 * @param ticker
 	 */
-	public void sell(String ticker) {
-		dao.deleteById(ticker);
+    public void sell(String ticker) {
+        Position position = dao.findById(ticker).orElse(null);
+        Quote quote = quoteDao.findById(ticker).orElse(null);
+        if (position == null || quote == null) {
+            System.out.println("Cannot calculate profit: msissing position or quote for " + ticker);
+        } else {
+            double profit = (quote.getPrice() * position.getNumOfShares()) - position.getValuePaid();
+            System.out.println("Profit for " + ticker + ": " + profit);
+        }
+        dao.deleteById(ticker);
         System.out.println("Sold: " + ticker);
-	}
+    }
+	
 
     public boolean buy(String symbol, int sharesToBuy) {
         Quote quote = quoteDao.findById(symbol).orElse(null);
@@ -57,14 +67,6 @@ public class PositionService {
         }
         // Proceed with buy logic
         return true;
-    }
-
-    public static void main(String[] args){
-        PositionService service = new PositionService();
-        String symbol = "GOOG";
-        Quote quote = quoteDao.findById(symbol).orElse(null);
-        //service.buy(symbol, 30, Math.round(quote.getPrice()/100.0)*100.0);
-        service.sell("GOOG");
     }
 
 }

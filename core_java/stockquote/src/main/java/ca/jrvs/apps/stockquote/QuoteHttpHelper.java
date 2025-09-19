@@ -1,19 +1,24 @@
 package ca.jrvs.apps.stockquote;
 import ca.jrvs.apps.stockquote.JsonParser;
 import ca.jrvs.apps.stockquote.Quote;
+import okhttp3.OkHttpClient;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.sql.Connection;
 
 public class QuoteHttpHelper {
 
     private final String apiKey;
     private final HttpClient client;
+    private final Connection c; // Add this field
 
-    public QuoteHttpHelper(String apiKey) {
+    public QuoteHttpHelper(String apiKey, OkHttpClient okClient, Connection c) {
         this.apiKey = apiKey;
         this.client = HttpClient.newHttpClient();
+        this.c = c; // Store the connection
     }
 
     public Quote fetchQuoteInfo(String symbol) throws IllegalArgumentException {
@@ -42,7 +47,7 @@ public class QuoteHttpHelper {
 
             Quote quote = JsonParser.toObjectFromJson(globalQuoteJson, Quote.class);
             Quote newQuote = new Quote();
-            QuoteDao quoteDao = new QuoteDao();
+            QuoteDao quoteDao = new QuoteDao(c); // Use the valid connection
             newQuote.setSymbol(quote.getSymbol());
             newQuote.setOpen(quote.getOpen());
             newQuote.setHigh(quote.getHigh());
@@ -68,15 +73,4 @@ public class QuoteHttpHelper {
         }
     }
 
-    public static void main(String[] args) {
-        String apiKey = "ebe9112052msh012e03c973d45f5p18bce4jsn5dd9f3d22fe4";
-        QuoteHttpHelper helper = new QuoteHttpHelper(apiKey);
-        
-        try {
-            Quote quote = helper.fetchQuoteInfo("MSFT");
-            System.out.println(JsonParser.toJson(quote, true, false));
-        } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
-        }
-    }
 }

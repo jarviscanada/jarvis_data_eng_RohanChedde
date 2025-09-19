@@ -23,24 +23,26 @@ public class PositionDao implements CrudDao<Position, String> {
     private static final String DELETE = "delete from Position where symbol=?;";
     private static final String DELETE_ALL = "delete from Position;";
 
+    public PositionDao(Connection c) {
+      this.c=c;
+    }
 
     @Override
     public Position save(Position entity) throws IllegalArgumentException {
-    Connection connection = DatabaseUtils.getConnection();
     try {
-      connection.setAutoCommit(false);
-        PreparedStatement statement = connection.prepareStatement(INSERT);
+      c.setAutoCommit(false);
+        PreparedStatement statement = c.prepareStatement(INSERT);
         statement.setString(1, entity.getTicker());
         statement.setInt(2, entity.getNumOfShares());
         statement.setDouble(3, entity.getValuePaid());
 
       statement.execute();
-      connection.commit();
+      c.commit();
       statement.close();
 
     } catch (SQLException e) {
       try {
-        connection.rollback();
+        c.rollback();
       } catch (SQLException sqle) {
         DatabaseUtils.handleSqlException("PositionDao.create.rollback", sqle, LOGGER);
       }
@@ -78,8 +80,7 @@ public class PositionDao implements CrudDao<Position, String> {
     @Override
     public Iterable<Position> findAll() {
         List<Position> positions = new ArrayList<>();
-        Connection connection = DatabaseUtils.getConnection();
-        try (Statement statement = connection.createStatement()){
+        try (Statement statement = c.createStatement()){
             ResultSet rs = statement.executeQuery(SELECT_ALL);
             positions = this.processResultSet(rs);
         } catch (SQLException e) {
@@ -90,17 +91,16 @@ public class PositionDao implements CrudDao<Position, String> {
 
     @Override
     public void deleteById(String id){
-        Connection connection = DatabaseUtils.getConnection();
     try {
-      connection.setAutoCommit(false);
-      PreparedStatement statement = connection.prepareStatement(DELETE);
+      c.setAutoCommit(false);
+      PreparedStatement statement = c.prepareStatement(DELETE);
         statement.setString(1, id);
       statement.executeUpdate();
-        connection.commit();
+        c.commit();
         statement.close();
     }catch (SQLException e) {
       try {
-        connection.rollback();
+        c.rollback();
       } catch (SQLException sqle) {
         DatabaseUtils.handleSqlException("PositionDao.deleteById.rollback", sqle, LOGGER);
       }
@@ -110,16 +110,15 @@ public class PositionDao implements CrudDao<Position, String> {
 
   @Override
   public void deleteAll() {
-    Connection connection = DatabaseUtils.getConnection();
     try {
-      connection.setAutoCommit(false);
-      PreparedStatement statement = connection.prepareStatement(DELETE_ALL);
+      c.setAutoCommit(false);
+      PreparedStatement statement = c.prepareStatement(DELETE_ALL);
       statement.executeUpdate();
-      connection.commit();
+      c.commit();
       statement.close();
     } catch (SQLException e) {
       try {
-        connection.rollback();
+        c.rollback();
       } catch (SQLException sqle) {
         DatabaseUtils.handleSqlException("PositionDao.deleteAll.rollback", sqle, LOGGER);
       }
