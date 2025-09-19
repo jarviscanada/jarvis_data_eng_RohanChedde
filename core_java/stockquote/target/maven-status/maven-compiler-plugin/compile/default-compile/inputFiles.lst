@@ -1,4 +1,15 @@
 /home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/API.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/App.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/CrudDao.java
 /home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/JsonParser.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/Main.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/Position.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/PositionDao.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/PositionService.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/Quote.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/QuoteDao.java
 /home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/QuoteHttpHelper.java
-/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/StockQuote.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/QuoteService.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/StockQuoteController.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/dto/StockQuote.java
+/home/rocky/dev/jarvis_data_eng_rohanchedde/core_java/stockquote/src/main/java/ca/jrvs/apps/stockquote/util/DatabaseUtils.java

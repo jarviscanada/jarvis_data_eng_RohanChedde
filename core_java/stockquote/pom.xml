@@ -5,11 +5,11 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.rohan.lil</groupId>
-  <artifactId>learning-jdbc</artifactId>
+  <groupId>ca.jrvs.apps.stockquote</groupId>
+  <artifactId>stockquote-app</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>learning-jdbc</name>
+  <name>Stock Quote Application</name>
   <url>http://www.example.com</url>
 
   <properties>
@@ -73,7 +73,7 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
+      <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.28</version>

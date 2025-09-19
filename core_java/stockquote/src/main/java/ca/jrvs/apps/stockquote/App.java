@@ -10,7 +10,7 @@ import ca.jrvs.apps.stockquote.Quote;
 
 public class App {
     public static void main(String[] args) {
-        QuoteDao quoteDao = new QuoteDao();
+        QuoteDao quoteDao = new QuoteDao(null);
         Iterable<Quote> quotes = quoteDao.findAll();
         System.out.println("**** Quotes ****");
         System.out.println("\n*** Get_ALL ***");
