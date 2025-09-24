@@ -49,5 +49,7 @@ The purpose of this project is to develop a stock tracking application using jav
         CONSTRAINT symbol_fk	FOREIGN KEY (symbol) REFERENCES quote(symbol)
     );
    ```
-3) This project can be accessed in Docker Hub:
-	```rohanc679/myapp```
+
+
+3) This project can be accessed in Docker Hub: (https://hub.docker.com/r/rohanc679/myapp)
+	```docker pull rohanc679/myapp:1.0```
