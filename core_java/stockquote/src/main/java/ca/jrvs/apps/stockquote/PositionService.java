@@ -22,15 +22,19 @@ public class PositionService {
         Position position = new Position();
         position.setTicker(ticker);
         position.setNumOfShares(numberOfShares);
-        price = quoteDao.findById(ticker).orElse(null).getPrice();
+        Quote quote = quoteDao.findById(ticker).orElse(null);
+        if (quote == null) {
+            throw new IllegalArgumentException("Buy order cannot be processed due to invalid ticker.");
+        }
+        price = quote.getPrice();
         position.setValuePaid(numberOfShares * price);
 
         if (numberOfShares <= 0 || price <= 0) {
             throw new IllegalArgumentException("Number of shares and price must be positive.");
-        }        
-        
+        }
+
         if(buy(ticker, numberOfShares) == false) {
-            throw new IllegalArgumentException("Buy order cannot be processed due to insufficient volume or invalid ticker.");
+            throw new IllegalArgumentException("Buy order cannot be processed due to insufficient volume or invalid ticker. (insufficient volume)");
         }
         dao.save(position);
         System.out.println("Bought Position:" + position);
@@ -61,7 +65,7 @@ public class PositionService {
             // Symbol not found
             return false;
         }
-        if (sharesToBuy > quote.getVolume()) {
+        if (sharesToBuy >= quote.getVolume()) {
             // Not enough volume available
             return false;
         }

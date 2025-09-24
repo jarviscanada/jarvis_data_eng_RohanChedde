@@ -13,7 +13,6 @@ public class QuoteService {
         this.dao = qRepo;
         this.httpHelper = rcon;
     }
-
     /**
 	 * Fetches latest quote data from endpoint
 	 * @param ticker

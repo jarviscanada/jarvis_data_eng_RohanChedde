@@ -18,7 +18,7 @@ public class QuoteHttpHelper {
     public QuoteHttpHelper(String apiKey, OkHttpClient okClient, Connection c) {
         this.apiKey = apiKey;
         this.client = HttpClient.newHttpClient();
-        this.c = c; // Store the connection
+        this.c = c;
     }
 
     public Quote fetchQuoteInfo(String symbol) throws IllegalArgumentException {
@@ -41,13 +41,13 @@ public class QuoteHttpHelper {
 
             String body = response.body();
 
-            // Parse the "Global Quote" node into StockQuote using JsonParser
+            //parse the global quote node into StockQuote using JsonParser
             String globalQuoteJson = JsonParser.toObjectFromJson(body, com.fasterxml.jackson.databind.JsonNode.class)
                     .get("Global Quote").toString();
 
             Quote quote = JsonParser.toObjectFromJson(globalQuoteJson, Quote.class);
             Quote newQuote = new Quote();
-            QuoteDao quoteDao = new QuoteDao(c); // Use the valid connection
+            QuoteDao quoteDao = new QuoteDao(c);
             newQuote.setSymbol(quote.getSymbol());
             newQuote.setOpen(quote.getOpen());
             newQuote.setHigh(quote.getHigh());

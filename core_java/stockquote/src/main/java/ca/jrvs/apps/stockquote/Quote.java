@@ -84,7 +84,6 @@ public class Quote {
   public void setPrice(double price) {
     this.price = price;
     logger.info("Price set to {}", price);
-
   }
 
   public int getVolume() {
